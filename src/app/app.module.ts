@@ -58,6 +58,7 @@ import {
 } from "@angular/material";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { MocksService } from "./dashboard/mocks.service";
+import { LineComponent } from "./line/line.component";
 const MODULES = [
   // Material
   MatAutocompleteModule,
@@ -117,12 +118,27 @@ const CDK = [
   DragDropModule,
   ScrollingModule
 ];
+import { DynamicModule } from 'ng-dynamic-component';
+
+const dashboardWidgets = [LineComponent];
 
 @NgModule({
-  imports: [BrowserAnimationsModule, BrowserModule, MODULES, CDK],
-  declarations: [AppComponent, HelloComponent, DashboardComponent],
+  imports: [
+    BrowserAnimationsModule,
+    BrowserModule,
+    MODULES,
+    CDK,
+    DynamicModule.withComponents(dashboardWidgets)
+  ],
+  declarations: [
+    AppComponent,
+    HelloComponent,
+    DashboardComponent,
+    LineComponent
+  ],
   bootstrap: [AppComponent],
   providers: [MocksService],
-  exports: [DashboardComponent]
+  exports: [DashboardComponent],
+  entryComponents: [dashboardWidgets]
 })
 export class AppModule {}

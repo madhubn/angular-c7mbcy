@@ -10,6 +10,7 @@ import {
 } from "./dashboard.model";
 
 import { MocksService } from "./mocks.service";
+import { LineComponent } from "./../line/line.component";
 import { Subscription } from "rxjs";
 
 import * as screenfull from "screenfull";
@@ -32,18 +33,20 @@ export class DashboardComponent implements OnInit {
 
   private canDrop = true;
 
+  public components = {
+    LineComponent: LineComponent
+  };
+
   constructor(
     private elementRef: ElementRef,
     private renderer: Renderer2,
     private dashboardService: MocksService
   ) {
-   
-
     this.getOptions();
   }
 
   ngOnInit() {
-    this.subscribe()
+    this.subscribe();
   }
 
   protected subscribe() {

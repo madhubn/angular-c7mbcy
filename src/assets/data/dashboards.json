@@ -6,7 +6,7 @@
         "widgets": [{
                 "id": "1",
                 "name": "Open Opportunities",
-                "component": "TestCardComponent",
+                "component": "LineComponent",
                 "cols": 4,
                 "rows": 2,
                 "y": 0,
@@ -15,7 +15,7 @@
             {
                 "id": "2",
                 "name": "All Opportunities",
-                "component": "TestCardComponent",
+                "component": "LineComponent",
                 "cols": 4,
                 "rows": 4,
                 "y": 0,
@@ -30,7 +30,7 @@
         "widgets": [{
                 "id": "1",
                 "name": "Pie Chart",
-                "component": "TestCardComponent",
+                "component": "LineComponent",
                 "cols": 4,
                 "rows": 8,
                 "y": 0,
@@ -54,7 +54,7 @@
         "widgets": [{
             "id": "1",
             "name": "Parliament Chart",
-            "component": "TestCardComponent",
+            "component": "LineComponent",
             "cols": 7,
             "rows": 7,
             "y": 0,
