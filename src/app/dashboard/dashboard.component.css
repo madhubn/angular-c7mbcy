@@ -6,3 +6,8 @@ gridster {
     height: calc(100vw - 112px);
     border-top: 1px solid black;
 }
+
+#chart {
+  border: 5px solid #AAA;
+  min-height: 100%;
+}

@@ -1,81 +1,88 @@
 [
-
-    {
+  {
+    "id": "1",
+    "name": "Sample Dashboard 1",
+    "widgets": [
+      {
         "id": "1",
-        "name": "Sample Dashboard 1",
-        "widgets": [{
-                "id": "1",
-                "name": "Open Opportunities",
-                "component": "LineComponent",
-                "cols": 4,
-                "rows": 3,
-                "y": 0,
-                "x": 0,
-                "type":"bar"
-            },
-            {
-                "id": "2",
-                "name": "All Opportunities",
-                "component": "LineComponent",
-                "cols": 4,
-                "rows": 3,
-                "y": 0,
-                "x": 4,
-                "type":"line"
-            }
-        ]
-    },
-
-    {
+        "name": "Open Opportunities",
+        "component": "LineComponent",
+        "cols": 4,
+        "rows": 3,
+        "y": 0,
+        "x": 0,
+        "type": "bar",
+        "config": {
+          "bgcolor": "#D0021B"
+        }
+      },
+      {
         "id": "2",
-        "name": "Sample Dashboard 2",
-        "widgets": [{
-                "id": "1",
-                "name": "Pie Chart",
-                "component": "LineComponent",
-                "cols": 4,
-                "rows": 8,
-                "y": 0,
-                "x": 0
-            },
-            {
-                "id": "2",
-                "name": "Funnel Chart",
-                "component": "TestCardComponent",
-                "cols": 4,
-                "rows": 8,
-                "y": 0,
-                "x": 2
-            }
-        ]
-    },
-
-    {
-        "id": "3",
-        "name": "Sample Dashboard 3",
-        "widgets": [{
-            "id": "1",
-            "name": "Parliament Chart",
-            "component": "LineComponent",
-            "cols": 7,
-            "rows": 7,
-            "y": 0,
-            "x": 0
-        }]
-    },
-
-    {
-        "id": "4",
-        "name": "Sample Dashboard 4",
-        "widgets": [{
-            "id": "1",
-            "name": "Timeline",
-            "component": "timeline",
-            "cols": 8,
-            "rows": 6,
-            "y": 0,
-            "x": 0
-        }]
-    }
-
+        "name": "All Opportunities",
+        "component": "LineComponent",
+        "cols": 4,
+        "rows": 3,
+        "y": 0,
+        "x": 4,
+        "type": "line",
+        "config": {
+          "bgcolor": "#F5A623"
+        }
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Sample Dashboard 2",
+    "widgets": [
+      {
+        "id": "1",
+        "name": "Pie Chart",
+        "component": "LineComponent",
+        "cols": 4,
+        "rows": 8,
+        "y": 0,
+        "x": 0
+      },
+      {
+        "id": "2",
+        "name": "Funnel Chart",
+        "component": "TestCardComponent",
+        "cols": 4,
+        "rows": 8,
+        "y": 0,
+        "x": 2
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Sample Dashboard 3",
+    "widgets": [
+      {
+        "id": "1",
+        "name": "Parliament Chart",
+        "component": "LineComponent",
+        "cols": 7,
+        "rows": 7,
+        "y": 0,
+        "x": 0
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "name": "Sample Dashboard 4",
+    "widgets": [
+      {
+        "id": "1",
+        "name": "Timeline",
+        "component": "timeline",
+        "cols": 8,
+        "rows": 6,
+        "y": 0,
+        "x": 0
+      }
+    ]
+  }
 ]

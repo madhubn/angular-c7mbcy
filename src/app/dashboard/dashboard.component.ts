@@ -132,4 +132,45 @@ export class DashboardComponent implements OnInit {
     // this.logger.info('toolPaletteItem: ' + JSON.stringify(toolPaletteItem));
     // this.logger.info('widget: ' + JSON.stringify(widget));
   }
+
+  public onDragEnter(event) {
+    //
+    // Deleting a widget (GridsterItem) leaves a gridster-preview behind
+    // See: https://github.com/tiberiuzuld/angular-gridster2/issues/516
+    //
+
+    const gridsterPreviewElements = this.elementRef.nativeElement.getElementsByTagName(
+      "gridster-preview"
+    );
+
+    // this.renderer.setStyle(gridsterPreview[0], 'display', 'block');
+    this.renderer.setStyle(
+      gridsterPreviewElements[0],
+      "background",
+      "rgba(0, 0, 0, .15)"
+    );
+  }
+
+  personIdentity(index, item) {
+    // console.log("TrackBy:", item.item, "at index", index);
+    return item.id;
+  }
+
+  public onDelete(item,indx) {
+    this.items.splice(indx, 1);
+
+    //
+    // Deleting a widget (GridsterItem) leaves a gridster-preview behind
+    // See: https://github.com/tiberiuzuld/angular-gridster2/issues/516
+    //
+
+    // const gridsterPreviewElements = this.elementRef.nativeElement.getElementsByTagName(
+    //   "gridster-preview"
+    // );
+
+    // // this.renderer.setStyle(gridsterPreview[0], 'display', 'none !important');
+    // this.renderer.setStyle(gridsterPreviewElements[0], "background", "#fafafa");
+
+    // this.logger.info('Widgets: ' + JSON.stringify(this.items));
+  }
 }

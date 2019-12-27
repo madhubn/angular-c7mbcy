@@ -18,13 +18,10 @@ export class LineComponent implements OnInit {
   ngOnInit() {
     console.log("changes", this.item);
     this.options = {
-      grid: [
-        {
-          x: "15%",
-          height: "60%"
-        }
-      ],
-
+      grid: {
+        left: "10%",
+        containLabel: true
+      },
       xAxis: {
         type: "time",
         splitLine: {
@@ -40,11 +37,9 @@ export class LineComponent implements OnInit {
         nameLocation: "middle",
         nameGap: 40
       },
-      dataZoom: [
-        {
-          show: true
-        }
-      ],
+      dataZoom: {
+        show: true
+      },
       series: [
         {
           data: [820, 932, 901, 934, 1290, 1330, 1320],
