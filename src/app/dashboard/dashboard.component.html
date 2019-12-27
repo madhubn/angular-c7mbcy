@@ -1,7 +1,7 @@
 <gridster [options]="options" (dragenter)="onDragEnter($event)" (drop)="onDrop($event)">
 	<ng-container *ngFor="let item of items">
 
-		<gridster-item [item]="item">
+		<gridster-item [item]="item" style="background-color: #eee;">
 
 			<mat-toolbar class="crm-dashboard-widget-toolbar">
 				<mat-toolbar-row class="crm-dashboard-widget-toolbar-row">
@@ -27,7 +27,8 @@
 				</mat-toolbar-row>
 			</mat-toolbar>
 
-			<ndc-dynamic [ndcDynamicComponent]=components[item.component]></ndc-dynamic>
+			<ndc-dynamic [ndcDynamicComponent]=components[item.component] [ndcDynamicInputs]="{item:item}">
+			</ndc-dynamic>
 
 
 		</gridster-item>

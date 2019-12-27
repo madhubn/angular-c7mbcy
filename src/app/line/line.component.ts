@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 
 @Component({
   selector: "app-line",
@@ -6,50 +6,52 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./line.component.css"]
 })
 export class LineComponent implements OnInit {
+  @Input()
+  item: any;
   isLoading: boolean = true;
   echartsInstance: any;
   updateOptions: any;
-  options = {
-    // backgroundColor: '#gray',
-    grid: [
-      {
-        x: "15%",
-        height: "60%"
-      }
-    ],
-
-    xAxis: {
-      type: "time",
-      splitLine: {
-        show: true
-      },
-      nameLocation: "middle",
-      name: "Time",
-      nameGap: 25
-    },
-    yAxis: {
-      type: "value",
-      name: "Temperture",
-      nameLocation: "middle",
-      nameGap: 40
-    },
-    dataZoom: [
-      {
-        show: true
-      }
-    ],
-    series: [
-      {
-        data: [820, 932, 901, 934, 1290, 1330, 1320],
-        type: "line"
-      }
-    ]
-  };
+  options: any;
 
   constructor() {}
 
   ngOnInit() {
-    console.log("changes");
+    console.log("changes", this.item);
+    this.options = {
+      grid: [
+        {
+          x: "15%",
+          height: "60%"
+        }
+      ],
+
+      xAxis: {
+        type: "time",
+        splitLine: {
+          show: true
+        },
+        nameLocation: "middle",
+        name: "Time",
+        nameGap: 25
+      },
+      yAxis: {
+        type: "value",
+        name: "Temperture",
+        nameLocation: "middle",
+        nameGap: 40
+      },
+      dataZoom: [
+        {
+          show: true
+        }
+      ],
+      series: [
+        {
+          data: [820, 932, 901, 934, 1290, 1330, 1320],
+          type: this.item.type
+        }
+      ]
+    };
   }
 
   onChartInit(e: any) {

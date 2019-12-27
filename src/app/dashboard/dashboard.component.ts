@@ -88,7 +88,7 @@ export class DashboardComponent implements OnInit {
       minRows: 10, // 6
       pushDirections: { north: true, east: true, south: true, west: true },
       pushItems: true,
-      resizable: { enabled: true }
+      resizable: { enabled: false }
       // swap: true,
     };
   }
@@ -99,6 +99,7 @@ export class DashboardComponent implements OnInit {
   ): void {
     console.log("itemResize", item);
     console.log("itemResize", itemComponent);
+    this.options.api.optionsChanged();
     // this.dashboardWidgetService.reflowWidgets();
   }
 
