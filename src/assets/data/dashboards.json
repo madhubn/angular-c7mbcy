@@ -8,7 +8,7 @@
                 "name": "Open Opportunities",
                 "component": "TestCardComponent",
                 "cols": 4,
-                "rows": 4,
+                "rows": 2,
                 "y": 0,
                 "x": 0
             },

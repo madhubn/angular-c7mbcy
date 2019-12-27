@@ -15,8 +15,8 @@ import { CdkTableModule } from "@angular/cdk/table";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { GridsterModule } from 'angular-gridster2';
-import { HttpClientModule } from '@angular/common/http';
+import { GridsterModule } from "angular-gridster2";
+import { HttpClientModule } from "@angular/common/http";
 
 import {
   MatAutocompleteModule,
@@ -56,8 +56,8 @@ import {
   MatTooltipModule,
   MatTreeModule
 } from "@angular/material";
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { MocksService } from './dashboard/mocks.service';
+import { DashboardComponent } from "./dashboard/dashboard.component";
+import { MocksService } from "./dashboard/mocks.service";
 const MODULES = [
   // Material
   MatAutocompleteModule,
@@ -122,6 +122,7 @@ const CDK = [
   imports: [BrowserAnimationsModule, BrowserModule, MODULES, CDK],
   declarations: [AppComponent, HelloComponent, DashboardComponent],
   bootstrap: [AppComponent],
-  providers: [MocksService]
+  providers: [MocksService],
+  exports: [DashboardComponent]
 })
 export class AppModule {}
