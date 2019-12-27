@@ -7,15 +7,37 @@ import { Component, OnInit } from "@angular/core";
 })
 export class LineComponent implements OnInit {
   isLoading: boolean = true;
+  echartsInstance: any;
   updateOptions: any;
   options = {
+    // backgroundColor: '#gray',
+    grid: [
+      {
+        x: "15%",
+        height: "60%"
+      }
+    ],
+
     xAxis: {
-      type: "category",
-      data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+      type: "time",
+      splitLine: {
+        show: true
+      },
+      nameLocation: "middle",
+      name: "Time",
+      nameGap: 25
     },
     yAxis: {
-      type: "value"
+      type: "value",
+      name: "Temperture",
+      nameLocation: "middle",
+      nameGap: 40
     },
+    dataZoom: [
+      {
+        show: true
+      }
+    ],
     series: [
       {
         data: [820, 932, 901, 934, 1290, 1330, 1320],
@@ -28,6 +50,12 @@ export class LineComponent implements OnInit {
 
   ngOnInit() {
     console.log("changes");
+  }
+
+  onChartInit(e: any) {
+    this.echartsInstance = e;
+    console.log("on chart init:", e);
+    this.echartsInstance.resize();
   }
 
   // ngOnChanges(changes: SimpleChanges) {
