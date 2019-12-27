@@ -59,6 +59,8 @@ import {
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { MocksService } from "./dashboard/mocks.service";
 import { LineComponent } from "./line/line.component";
+import { NgxEchartsModule } from "ngx-echarts";
+
 const MODULES = [
   // Material
   MatAutocompleteModule,
@@ -128,7 +130,8 @@ const dashboardWidgets = [LineComponent];
     BrowserModule,
     MODULES,
     CDK,
-    DynamicModule.withComponents(dashboardWidgets)
+    DynamicModule.withComponents(dashboardWidgets),
+    NgxEchartsModule
   ],
   declarations: [
     AppComponent,
