@@ -73,8 +73,8 @@ export class DashboardComponent implements OnInit {
       minRows: 10,  // 6
       pushDirections: { north: true, east: true, south: true, west: true },
       pushItems: true,
-      resizable: { enabled: true }
-      // swap: true,
+      resizable: { enabled: true },
+      swap: true,
     };
       // gridType: GridType.Fit,
       // compactType: "compactUp&Left",
@@ -185,7 +185,7 @@ export class DashboardComponent implements OnInit {
         dialEndAngle: -90.001
       }
     };
-    // this.items.push(data);
+    this.dashboard.push(data);
   }
 
   onGauge() {
@@ -204,6 +204,6 @@ export class DashboardComponent implements OnInit {
         dialEndAngle: 0
       }
     };
-    // this.items.push(data);
+    this.dashboard.push(data);
   }
 }
