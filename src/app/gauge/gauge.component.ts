@@ -1,9 +1,16 @@
-import { Component, OnInit, OnDestroy, Input } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  Input,
+  ViewEncapsulation
+} from "@angular/core";
 
 @Component({
   selector: "app-gauge",
   templateUrl: "./gauge.component.html",
-  styleUrls: ["./gauge.component.css"]
+  styleUrls: ["./gauge.component.css"],
+  encapsulation: ViewEncapsulation.None
 })
 export class GaugeComponent implements OnInit, OnDestroy {
   percentageValue: (value: number) => string;
@@ -43,6 +50,17 @@ export class GaugeComponent implements OnInit, OnDestroy {
 
     this.interval = setInterval(updateValues, INTERVAL);
     updateValues();
+    // document.documentElement.style.setProperty(
+    //   `--stroke-width`,
+    //   this.item.config.width
+    // );
+  }
+
+  getClass() {
+    // 'stroke': 'blue',
+    // 'stroke-width': this.item.config.width
+    console.log("this.item.config.width", this.item.config.width);
+    return { stroke: "blue", "stroke-width": this.item.config.width };
   }
 
   ngOnDestroy(): void {

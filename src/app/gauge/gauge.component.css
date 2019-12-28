@@ -1,3 +1,9 @@
+:root {
+  --color-black: #2e2e2e;
+  --stroke: red;
+}
+
+ 
  .gauges-container {
       display: flex;
     }
@@ -6,19 +12,17 @@
       flex: 1;
       display: block;
       padding: 10px;
-      background-color: #222;
       margin: 7px;
       border-radius: 3px;
+      background: #eee;
     }
     mwl-gauge > .gauge > .dial {
-      stroke: #334455;
-      stroke-width: 2;
       fill: rgba(0,0,0,0);
     }
     mwl-gauge > .gauge > .value {
       stroke: rgb(47, 227, 255);
       stroke-width: 2;
-      fill: rgba(0,0,0,0);
+      fill: fff;
     }
     mwl-gauge > .gauge > .value-text {
       fill: rgb(47, 227, 255);

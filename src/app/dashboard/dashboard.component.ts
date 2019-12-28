@@ -47,16 +47,15 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.options = {
-
       disablePushOnDrag: true,
       displayGrid: DisplayGrid.Always,
       draggable: {
-        enabled: true,
-        ignoreContent: true,
-        // dropOverItems: true,
-        dropOverItems: false,
-        dragHandleClass: 'drag-handler',
-        ignoreContentClass: 'no-drag',
+        enabled: true
+        // ignoreContent: true,
+        // // dropOverItems: true,
+        // dropOverItems: false,
+        // dragHandleClass: 'drag-handler',
+        // ignoreContentClass: 'no-drag',
       },
       emptyCellDragMaxCols: 50,
       emptyCellDragMaxRows: 50,
@@ -66,69 +65,71 @@ export class DashboardComponent implements OnInit {
       enableEmptyCellDrop: true,
       enableEmptyCellDrag: false,
       gridType: GridType.Fit,
+      mobileBreakpoint: 640,
       // itemResizeCallback: this.itemResize.bind(this),
       // maxCols: 6,
       // maxRows: 6,
       minCols: 10, // 6
-      minRows: 10,  // 6
+      minRows: 10, // 6
       pushDirections: { north: true, east: true, south: true, west: true },
       pushItems: true,
       resizable: { enabled: true },
       swap: true,
+      useTransformPositioning: true
     };
-      // gridType: GridType.Fit,
-      // compactType: "compactUp&Left",
-      // margin: 10,
-      // outerMargin: true,
-      // outerMarginTop: null,
-      // outerMarginRight: null,
-      // outerMarginBottom: null,
-      // outerMarginLeft: null,
-      // useTransformPositioning: true,
-      // mobileBreakpoint: 640,
-      // minCols: 1,
-      // maxCols: 100,
-      // minRows: 1,
-      // maxRows: 100,
-      // maxItemCols: 100,
-      // minItemCols: 1,
-      // maxItemRows: 100,
-      // minItemRows: 1,
-      // maxItemArea: 2500,
-      // minItemArea: 1,
-      // defaultItemCols: 1,
-      // defaultItemRows: 1,
-      // fixedColWidth: 105,
-      // fixedRowHeight: 105,
-      // keepFixedHeightInMobile: false,
-      // keepFixedWidthInMobile: false,
-      // scrollSensitivity: 10,
-      // scrollSpeed: 20,
-      // enableEmptyCellClick: false,
-      // enableEmptyCellContextMenu: false,
-      // enableEmptyCellDrop: false,
-      // enableEmptyCellDrag: false,
-      // enableOccupiedCellDrop: false,
-      // emptyCellDragMaxCols: 50,
-      // emptyCellDragMaxRows: 50,
-      // ignoreMarginInRow: false,
-      // draggable: {
-      //   enabled: true
-      // },
-      // resizable: {
-      //   enabled: false
-      // },
-      // swap: false,
-      // pushItems: true,
-      // disablePushOnDrag: false,
-      // disablePushOnResize: false,
-      // pushDirections: { north: true, east: true, south: true, west: true },
-      // pushResizeItems: false,
-      // // displayGrid: DisplayGrid.Drag,
-      // disableWindowResize: false,
-      // disableWarnings: false,
-      // scrollToNewItems: false
-    
+    // gridType: GridType.Fit,
+    // compactType: "compactUp&Left",
+    // margin: 10,
+    // outerMargin: true,
+    // outerMarginTop: null,
+    // outerMarginRight: null,
+    // outerMarginBottom: null,
+    // outerMarginLeft: null,
+    // useTransformPositioning: true,
+    // mobileBreakpoint: 640,
+    // minCols: 1,
+    // maxCols: 100,
+    // minRows: 1,
+    // maxRows: 100,
+    // maxItemCols: 100,
+    // minItemCols: 1,
+    // maxItemRows: 100,
+    // minItemRows: 1,
+    // maxItemArea: 2500,
+    // minItemArea: 1,
+    // defaultItemCols: 1,
+    // defaultItemRows: 1,
+    // fixedColWidth: 105,
+    // fixedRowHeight: 105,
+    // keepFixedHeightInMobile: false,
+    // keepFixedWidthInMobile: false,
+    // scrollSensitivity: 10,
+    // scrollSpeed: 20,
+    // enableEmptyCellClick: false,
+    // enableEmptyCellContextMenu: false,
+    // enableEmptyCellDrop: false,
+    // enableEmptyCellDrag: false,
+    // enableOccupiedCellDrop: false,
+    // emptyCellDragMaxCols: 50,
+    // emptyCellDragMaxRows: 50,
+    // ignoreMarginInRow: false,
+    // draggable: {
+    //   enabled: true
+    // },
+    // resizable: {
+    //   enabled: false
+    // },
+    // swap: false,
+    // pushItems: true,
+    // disablePushOnDrag: false,
+    // disablePushOnResize: false,
+    // pushDirections: { north: true, east: true, south: true, west: true },
+    // pushResizeItems: false,
+    // // displayGrid: DisplayGrid.Drag,
+    // disableWindowResize: false,
+    // disableWarnings: false,
+    // scrollToNewItems: false
+
     this.getToolPaletteItems();
     this.subscribe();
   }
@@ -180,9 +181,10 @@ export class DashboardComponent implements OnInit {
       x: 4,
       type: "line",
       config: {
-        bgcolor: "#eee",
+        bgcolor: "#fff",
         dialStartAngle: -90,
-        dialEndAngle: -90.001
+        dialEndAngle: -90.001,
+        width: 2
       }
     };
     this.dashboard.push(data);
@@ -199,9 +201,10 @@ export class DashboardComponent implements OnInit {
       x: 0,
       type: "line",
       config: {
-        bgcolor: "#eee",
+        bgcolor: "#fff",
         dialStartAngle: 180,
-        dialEndAngle: 0
+        dialEndAngle: 0,
+        width: 10
       }
     };
     this.dashboard.push(data);

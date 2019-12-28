@@ -35,10 +35,10 @@
 			</ng-container>
 		</gridster-item>
 	</gridster> -->
-	
-	<button mat-raised-button color="primary" (click)="onAdd()">Add</button>
+
+<button mat-raised-button color="primary" (click)="onAdd()">Add</button>
 <button mat-raised-button color="primary" (click)="onGauge()">Gauge Add</button>
-<gridster [options]="options" (dragenter)="onDragEnter($event)" (drop)="onDrop($event)">
+<gridster [options]="options" (dragenter)="onDragEnter($event)" (drop)="onDrop($event)" style="background-color:#fff">
 	<ng-container *ngFor="let item of dashboard;trackBy:personIdentity;let indx = index">
 
 		<gridster-item [item]="item" [style.background]="item?.config.bgcolor">
