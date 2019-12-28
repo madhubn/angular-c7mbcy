@@ -1,6 +1,3 @@
-
-
-
 import { MocksService } from "./mocks.service";
 import { LineComponent } from "./../line/line.component";
 import { Subscription } from "rxjs";
@@ -8,10 +5,22 @@ import { Subscription } from "rxjs";
 import * as screenfull from "screenfull";
 import { Screenfull } from "screenfull";
 import { GaugeComponent } from "./../gauge/gauge.component";
-  
-import {ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation} from '@angular/core';
+import { DashboardWidget, ToolPaletteItem } from "./dashboard.model";
 
-import {CompactType, DisplayGrid, GridsterConfig, GridsterItem, GridType} from 'angular-gridster2';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnInit,
+  ViewEncapsulation
+} from "@angular/core";
+
+import {
+  CompactType,
+  DisplayGrid,
+  GridsterConfig,
+  GridsterItem,
+  GridType
+} from "angular-gridster2";
 
 @Component({
   selector: "app-dashboard",
@@ -19,78 +28,130 @@ import {CompactType, DisplayGrid, GridsterConfig, GridsterItem, GridType} from '
   styleUrls: ["./dashboard.component.css"]
 })
 export class DashboardComponent implements OnInit {
- options: GridsterConfig;
-  dashboard: Array<GridsterItem>;
+  options: GridsterConfig;
+  // dashboard: Array<GridsterItem>;
+  public dashboard: DashboardWidget[];
+
+  public screenFull = <Screenfull>screenfull;
+
+  public toolPaletteItems: ToolPaletteItem[];
+
+  public components = {
+    LineComponent: LineComponent,
+    GaugeComponent: GaugeComponent
+  };
+
+  protected subscription: Subscription;
+
+  constructor(private dashboardService: MocksService) {}
 
   ngOnInit() {
     this.options = {
-      gridType: GridType.Fit,
-      compactType: 'compactUp&Left',
-      margin: 10,
-      outerMargin: true,
-      outerMarginTop: null,
-      outerMarginRight: null,
-      outerMarginBottom: null,
-      outerMarginLeft: null,
-      useTransformPositioning: true,
-      mobileBreakpoint: 640,
-      minCols: 1,
-      maxCols: 100,
-      minRows: 1,
-      maxRows: 100,
-      maxItemCols: 100,
-      minItemCols: 1,
-      maxItemRows: 100,
-      minItemRows: 1,
-      maxItemArea: 2500,
-      minItemArea: 1,
-      defaultItemCols: 1,
-      defaultItemRows: 1,
-      fixedColWidth: 105,
-      fixedRowHeight: 105,
-      keepFixedHeightInMobile: false,
-      keepFixedWidthInMobile: false,
-      scrollSensitivity: 10,
-      scrollSpeed: 20,
-      enableEmptyCellClick: false,
-      enableEmptyCellContextMenu: false,
-      enableEmptyCellDrop: false,
-      enableEmptyCellDrag: false,
-      enableOccupiedCellDrop: false,
-      emptyCellDragMaxCols: 50,
-      emptyCellDragMaxRows: 50,
-      ignoreMarginInRow: false,
+
+      disablePushOnDrag: true,
+      displayGrid: DisplayGrid.Always,
       draggable: {
         enabled: true,
+        ignoreContent: true,
+        // dropOverItems: true,
+        dropOverItems: false,
+        dragHandleClass: 'drag-handler',
+        ignoreContentClass: 'no-drag',
       },
-      resizable: {
-        enabled: true,
-      },
-      swap: false,
+      emptyCellDragMaxCols: 50,
+      emptyCellDragMaxRows: 50,
+      // emptyCellDropCallback: this.onDrop.bind(this),
+      enableEmptyCellClick: false,
+      enableEmptyCellContextMenu: false,
+      enableEmptyCellDrop: true,
+      enableEmptyCellDrag: false,
+      gridType: GridType.Fit,
+      // itemResizeCallback: this.itemResize.bind(this),
+      // maxCols: 6,
+      // maxRows: 6,
+      minCols: 10, // 6
+      minRows: 10,  // 6
+      pushDirections: { north: true, east: true, south: true, west: true },
       pushItems: true,
-      disablePushOnDrag: false,
-      disablePushOnResize: false,
-      pushDirections: {north: true, east: true, south: true, west: true},
-      pushResizeItems: false,
-      // displayGrid: DisplayGrid.Drag,
-      disableWindowResize: false,
-      disableWarnings: false,
-      scrollToNewItems: false
+      resizable: { enabled: true }
+      // swap: true,
     };
+      // gridType: GridType.Fit,
+      // compactType: "compactUp&Left",
+      // margin: 10,
+      // outerMargin: true,
+      // outerMarginTop: null,
+      // outerMarginRight: null,
+      // outerMarginBottom: null,
+      // outerMarginLeft: null,
+      // useTransformPositioning: true,
+      // mobileBreakpoint: 640,
+      // minCols: 1,
+      // maxCols: 100,
+      // minRows: 1,
+      // maxRows: 100,
+      // maxItemCols: 100,
+      // minItemCols: 1,
+      // maxItemRows: 100,
+      // minItemRows: 1,
+      // maxItemArea: 2500,
+      // minItemArea: 1,
+      // defaultItemCols: 1,
+      // defaultItemRows: 1,
+      // fixedColWidth: 105,
+      // fixedRowHeight: 105,
+      // keepFixedHeightInMobile: false,
+      // keepFixedWidthInMobile: false,
+      // scrollSensitivity: 10,
+      // scrollSpeed: 20,
+      // enableEmptyCellClick: false,
+      // enableEmptyCellContextMenu: false,
+      // enableEmptyCellDrop: false,
+      // enableEmptyCellDrag: false,
+      // enableOccupiedCellDrop: false,
+      // emptyCellDragMaxCols: 50,
+      // emptyCellDragMaxRows: 50,
+      // ignoreMarginInRow: false,
+      // draggable: {
+      //   enabled: true
+      // },
+      // resizable: {
+      //   enabled: false
+      // },
+      // swap: false,
+      // pushItems: true,
+      // disablePushOnDrag: false,
+      // disablePushOnResize: false,
+      // pushDirections: { north: true, east: true, south: true, west: true },
+      // pushResizeItems: false,
+      // // displayGrid: DisplayGrid.Drag,
+      // disableWindowResize: false,
+      // disableWarnings: false,
+      // scrollToNewItems: false
+    
+    this.getToolPaletteItems();
+    this.subscribe();
+  }
 
-    this.dashboard = [
-      {cols: 2, rows: 1, y: 0, x: 0},
-      {cols: 2, rows: 2, y: 0, x: 2, hasContent: true},
-      {cols: 1, rows: 1, y: 0, x: 4},
-      {cols: 1, rows: 1, y: 2, x: 5},
-      {cols: 1, rows: 1, y: 1, x: 0},
-      {cols: 1, rows: 1, y: 1, x: 0},
-      {cols: 2, rows: 2, y: 3, x: 5, minItemRows: 2, minItemCols: 2, label: 'Min rows & cols = 2'},
-      {cols: 2, rows: 2, y: 2, x: 0, maxItemRows: 2, maxItemCols: 2, label: 'Max rows & cols = 2'},
-      {cols: 2, rows: 1, y: 2, x: 2, dragEnabled: true, resizeEnabled: true, label: 'Drag&Resize Enabled'},
-      {cols: 1, rows: 1, y: 2, x: 4, dragEnabled: false, resizeEnabled: false, label: 'Drag&Resize Disabled'},
-      {cols: 1, rows: 1, y: 2, x: 6}
-    ];
+  protected subscribe() {
+    this.subscription = this.dashboardService
+      .getDashboard("1")
+      .subscribe(data => {
+        this.dashboard = data.widgets;
+
+        // this.logger.info('Dashboard Id: ' + JSON.stringify(data.id));
+        // this.logger.info('Widgets: ' + JSON.stringify(this.items));
+      });
+  }
+
+  public getToolPaletteItems() {
+    const subscription: Subscription = this.dashboardService
+      .getToolPaletteItems()
+      .subscribe(data => {
+        this.toolPaletteItems = data;
+
+        subscription.unsubscribe();
+      });
   }
 
   changedOptions() {
@@ -106,7 +167,7 @@ export class DashboardComponent implements OnInit {
   }
 
   addItem() {
-    this.dashboard.push({x: 0, y: 0, cols: 1, rows: 1});
+    this.dashboard.push({ x: 0, y: 0, cols: 1, rows: 1 });
   }
   onAdd() {
     const data = {
