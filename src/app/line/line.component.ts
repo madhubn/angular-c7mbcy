@@ -43,7 +43,9 @@ export class LineComponent implements OnInit {
       series: [
         {
           data: [820, 932, 901, 934, 1290, 1330, 1320],
-          type: this.item.type
+          type: this.item.type,
+          barMaxWidth: "100%",
+          barMinHeight: "100%"
         }
       ]
     };

@@ -156,7 +156,7 @@ export class DashboardComponent implements OnInit {
     return item.id;
   }
 
-  public onDelete(item,indx) {
+  public onDelete(item, indx) {
     this.items.splice(indx, 1);
 
     //
@@ -172,5 +172,22 @@ export class DashboardComponent implements OnInit {
     // this.renderer.setStyle(gridsterPreviewElements[0], "background", "#fafafa");
 
     // this.logger.info('Widgets: ' + JSON.stringify(this.items));
+  }
+
+  onAdd() {
+    const data = {
+      id: "10",
+      name: "All Opportunities",
+      component: "LineComponent",
+      cols: 4,
+      rows: 3,
+      y: 0,
+      x: 4,
+      type: "line",
+      config: {
+        bgcolor: "#eee"
+      }
+    };
+    this.items.push(data);
   }
 }
