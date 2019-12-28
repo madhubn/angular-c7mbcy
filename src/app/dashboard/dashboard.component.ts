@@ -72,7 +72,7 @@ export class DashboardComponent implements OnInit {
       disablePushOnResize: false,
       pushDirections: {north: true, east: true, south: true, west: true},
       pushResizeItems: false,
-      displayGrid: DisplayGrid.Drag,
+      // displayGrid: DisplayGrid.Drag,
       disableWindowResize: false,
       disableWarnings: false,
       scrollToNewItems: false
