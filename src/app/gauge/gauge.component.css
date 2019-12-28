@@ -17,12 +17,14 @@
       background: #eee;
     }
     mwl-gauge > .gauge > .dial {
+       stroke: red;
+       stroke-width: 2;
       fill: rgba(0,0,0,0);
     }
     mwl-gauge > .gauge > .value {
       stroke: rgb(47, 227, 255);
       stroke-width: 2;
-      fill: fff;
+      fill: rgba(0,0,0,0);;
     }
     mwl-gauge > .gauge > .value-text {
       fill: rgb(47, 227, 255);

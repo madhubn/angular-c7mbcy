@@ -59,8 +59,8 @@ export class GaugeComponent implements OnInit, OnDestroy {
   getClass() {
     // 'stroke': 'blue',
     // 'stroke-width': this.item.config.width
-    console.log("this.item.config.width", this.item.config.width);
-    return { stroke: "blue", "stroke-width": this.item.config.width };
+    // console.log("this.item.config.width", this.item.config.width);
+    // return { stroke: "blue", "stroke-width": this.item.config.width };
   }
 
   ngOnDestroy(): void {
