@@ -17,7 +17,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { GridsterModule } from "angular-gridster2";
 import { HttpClientModule } from "@angular/common/http";
-
+import { GaugeModule } from 'angular-gauge';
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -106,7 +106,8 @@ const MODULES = [
   ReactiveFormsModule,
   FlexLayoutModule,
   GridsterModule,
-  HttpClientModule
+  HttpClientModule,
+  GaugeModule.forRoot()
 ];
 
 const CDK = [
@@ -121,8 +122,9 @@ const CDK = [
   ScrollingModule
 ];
 import { DynamicModule } from 'ng-dynamic-component';
+import { GaugeComponent } from './gauge/gauge.component';
 
-const dashboardWidgets = [LineComponent];
+const dashboardWidgets = [LineComponent,GaugeComponent];
 
 @NgModule({
   imports: [
@@ -137,7 +139,8 @@ const dashboardWidgets = [LineComponent];
     AppComponent,
     HelloComponent,
     DashboardComponent,
-    LineComponent
+    LineComponent,
+    GaugeComponent
   ],
   bootstrap: [AppComponent],
   providers: [MocksService],
