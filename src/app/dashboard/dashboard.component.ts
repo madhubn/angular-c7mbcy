@@ -178,7 +178,7 @@ export class DashboardComponent implements OnInit {
       cols: 4,
       rows: 3,
       y: 0,
-      x: 4,
+      x: 0,
       type: "line",
       config: {
         bgcolor: "#fff",
