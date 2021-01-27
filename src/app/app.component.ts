@@ -19,7 +19,10 @@ export class AppComponent {
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
       name: [null, Validators.required],
-      phone: [""]
+      phone: [
+        "",
+        [Validators.pattern(/^\(\d{3}\)\s\d{3}\d{4}$/), Validators.required]
+      ]
     });
   }
 }

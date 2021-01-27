@@ -11,7 +11,7 @@
 			<form [formGroup]="form">
 				<input type="text" appNum [allowDecimals]="true"
         [allowSign]="true">
-				<input class="form-control"  type="text" appPhone  formControlName="phone" id="phone-number"  >
+				<input class="form-control"  type="text"  formControlName="phone" id="phone-number"  >
 			</form>
 
 				<form #userForm="ngForm" (ngSubmit)="onFormSubmit(userForm)">
