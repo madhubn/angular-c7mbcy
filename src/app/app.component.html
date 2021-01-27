@@ -9,11 +9,37 @@
 		<mat-drawer-content>
 
 			<form [formGroup]="form">
-				<input type="text" OnlyNumber="true" appNum>
+				<input type="text" appNum [allowDecimals]="true"
+        [allowSign]="true">
+				<input class="form-control"  type="text" appPhone  formControlName="phone" id="phone-number"  >
 			</form>
 
+				<form #userForm="ngForm" (ngSubmit)="onFormSubmit(userForm)">
+					<table>
+						<tr>
+							<td>Mobile Number:</td>
+							<td>
+								<input name="mobileNumber" [ngModel]="user.mobileNumber" [pattern]="mobNumberPattern" #mobNumber="ngModel">
+								<div *ngIf="mobNumber.errors && userForm.submitted && !isValidFormSubmitted"
+									[ngClass]="'error'">
+									<div *ngIf="mobNumber.errors.pattern">
+										Mobile number not valid.
+									</div>
+								</div>
+							</td>
+						</tr>
+
+						<tr>
+							<td colspan="2">
+								<button>Submit</button>
+							</td>
+						</tr>
+					</table>
+				</form>
 		</mat-drawer-content>
 
 
 	</mat-drawer-container>
 </div>
+
+<!-- https://stackblitz.com/edit/angular-material-multi-level-menu-with-breadcrumb?file=src%2Fapp%2Fapp.component.html -->
