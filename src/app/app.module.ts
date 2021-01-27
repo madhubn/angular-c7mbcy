@@ -123,6 +123,7 @@ const CDK = [
 ];
 import { DynamicModule } from 'ng-dynamic-component';
 import { GaugeComponent } from './gauge/gauge.component';
+import { NumDirective } from './num.directive';
 
 const dashboardWidgets = [LineComponent,GaugeComponent];
 
@@ -140,7 +141,8 @@ const dashboardWidgets = [LineComponent,GaugeComponent];
     HelloComponent,
     DashboardComponent,
     LineComponent,
-    GaugeComponent
+    GaugeComponent,
+    NumDirective
   ],
   bootstrap: [AppComponent],
   providers: [MocksService],

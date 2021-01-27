@@ -6,25 +6,11 @@
 		</mat-toolbar>
 	</header>
 	<mat-drawer-container class="page-wrapper">
-		<!-- vertical Menu Bar -->
-		<mat-drawer>
-			vertical
-		</mat-drawer>
-
 		<mat-drawer-content>
-			<!-- horizontal Menu Bar -->
 
-
-			<div fxLayout fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="10px" fxLayoutGap.xs="0">
-				<div fxFlex="20%" class="test" style="background-color: gray;">
-					Tree
-				</div>
-				<div fxFlex="80%">
-					jhhhhhhhhhhhhhh
-          <app-dashboard></app-dashboard>
-					<!-- <router-outlet></router-outlet> -->
-				</div>
-			</div>
+			<form [formGroup]="form">
+				<input type="text" OnlyNumber="true" appNum>
+			</form>
 
 		</mat-drawer-content>
 
