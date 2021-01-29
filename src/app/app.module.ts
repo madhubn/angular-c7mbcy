@@ -17,7 +17,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { GridsterModule } from "angular-gridster2";
 import { HttpClientModule } from "@angular/common/http";
-import { GaugeModule } from 'angular-gauge';
+import { GaugeModule } from "angular-gauge";
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -60,6 +60,7 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
 import { MocksService } from "./dashboard/mocks.service";
 import { LineComponent } from "./line/line.component";
 import { NgxEchartsModule } from "ngx-echarts";
+import { FileUploadModule } from "ng2-file-upload";
 
 const MODULES = [
   // Material
@@ -107,7 +108,8 @@ const MODULES = [
   FlexLayoutModule,
   GridsterModule,
   HttpClientModule,
-  GaugeModule.forRoot()
+  GaugeModule.forRoot(),
+  FileUploadModule
 ];
 
 const CDK = [
@@ -121,12 +123,12 @@ const CDK = [
   DragDropModule,
   ScrollingModule
 ];
-import { DynamicModule } from 'ng-dynamic-component';
-import { GaugeComponent } from './gauge/gauge.component';
-import { NumDirective } from './num.directive';
-import { PhoneDirective } from './phone.directive';
+import { DynamicModule } from "ng-dynamic-component";
+import { GaugeComponent } from "./gauge/gauge.component";
+import { NumDirective } from "./num.directive";
+import { PhoneDirective } from "./phone.directive";
 
-const dashboardWidgets = [LineComponent,GaugeComponent];
+const dashboardWidgets = [LineComponent, GaugeComponent];
 
 @NgModule({
   imports: [
